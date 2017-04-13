@@ -12,6 +12,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property int $intPropExtra
  * @property float $floatProp
  * @property bool $boolProp
+ * @property bool $instanceProp
  */
 class ModelInstance extends Model
 {
@@ -30,7 +31,11 @@ class ModelInstance extends Model
                 'type' => DataType::INT
             ),
             'floatProp' => DataType::FLOAT,
-            'boolProp' => DataType::BOOL
+            'boolProp' => DataType::BOOL,
+            'instanceProp' => array(
+                'type' => DataType::INSTANCE,
+                'expect' => '\TestingClasses\TestingClass'
+            )
         );
     }
 }

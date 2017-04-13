@@ -18,4 +18,5 @@ class DataType
     const INT = 'int';
     const FLOAT = 'float';
     const BOOL = 'bool';
+    const INSTANCE = 'instance';
 }

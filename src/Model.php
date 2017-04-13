@@ -132,7 +132,10 @@ abstract class Model
             $handler = new $customHandlerClass;
 
             // Run specified method
-            $val = $handler->{$handler::SET_HANDLER}($val);
+            $val = $handler->{$handler::SET_HANDLER}(
+                $val,
+                $this->definedAttributes[$name]
+            );
         }
 
         // Set property
@@ -216,7 +219,10 @@ abstract class Model
             $handler = new $customHandlerClass;
 
             // Run specified method
-            $val = $handler->{$handler::GET_HANDLER}($val);
+            $val = $handler->{$handler::GET_HANDLER}(
+                $val,
+                $this->definedAttributes[$name]
+            );
         }
 
         // Return the property if it exists otherwise return null
