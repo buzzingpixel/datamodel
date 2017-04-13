@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ModelFloatPropertyTest extends TestCase
 {
     /**
-     * Test string model property type
+     * Test float model property type
      */
     public function testProperty()
     {

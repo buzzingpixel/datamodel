@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ModelIntPropertyTest extends TestCase
 {
     /**
-     * Test string model property type
+     * Test integer model property type
      */
     public function testProperty()
     {

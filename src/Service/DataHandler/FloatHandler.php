@@ -19,7 +19,7 @@ class FloatHandler
     /**
      * Common method to handle data
      * @param mixed $val
-     * @return int
+     * @return float
      */
     public function commonHandler($val)
     {
