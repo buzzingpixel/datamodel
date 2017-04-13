@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "DataModel\\": "src/"
+            "BuzzingPixel\\DataModel\\": "src/"
         }
     }
 }
