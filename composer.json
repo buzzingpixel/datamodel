@@ -1,0 +1,18 @@
+{
+    "name": "buzzingpixel/datamodel",
+    "type": "library",
+    "description": "Data modeling",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "TJ Draper",
+            "email": "tj@buzzingpixel.com",
+            "homepage": "https://buzzingpixel.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DataModel\\": "src/"
+        }
+    }
+}
