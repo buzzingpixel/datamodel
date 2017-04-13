@@ -13,6 +13,8 @@ namespace BuzzingPixel\DataModel;
  */
 abstract class Model
 {
+    private $handlerNamespace = '\BuzzingPixel\DataModel\Service\DataHandler\\';
+
     /** @var bool $suppressWarnings */
     private $suppressWarnings = false;
 
@@ -32,7 +34,7 @@ abstract class Model
         $suppressWarnings = false
     ) {
         // Set defined attributes
-        $this->definedAttributes = $this->defineAttributes();
+        $this->setDefinedAttributes($this->defineAttributes());
 
         // Set properties
         $this->setProperties($properties);
@@ -48,6 +50,43 @@ abstract class Model
     protected function defineAttributes()
     {
         return array();
+    }
+
+    /**
+     * Set defined attributes
+     * @param array $attributes
+     * @param bool $clearPreviousAttributes
+     * @return self
+     */
+    public function setDefinedAttributes(
+        $attributes = array(),
+        $clearPreviousAttributes = true
+    ) {
+        // Check if we should clear out any previously defined attributes
+        if ($clearPreviousAttributes) {
+            $this->definedAttributes = array();
+        }
+
+        // Iterate through attributes and set as defined
+        foreach ($attributes as $name => $def) {
+            // If the def type is a string, make it an array of type
+            if (gettype($def) === 'string') {
+                $def = array(
+                    'type' => $def
+                );
+            }
+
+            // If type is not defined, the attribute is not valid
+            if (gettype($def) !== 'array' || ! isset($def['type'])) {
+                continue;
+            }
+
+            // Set the defined attribute
+            $this->definedAttributes[$name] = $def;
+        }
+
+        // Return instance
+        return $this;
     }
 
     /**
@@ -75,7 +114,24 @@ abstract class Model
                 trigger_error("Model property {$name} is not defined");
             }
 
+            // Return instance
             return $this;
+        }
+
+        // Get this property type
+        $type = $this->definedAttributes[$name]['type'];
+        $typeHandlerClass = ucfirst($type) . 'Handler';
+
+        // Set custom handler class name
+        $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+
+        // Check for custom handler class
+        if (class_exists($customHandlerClass)) {
+            // Create instance of handler class
+            $handler = new $customHandlerClass;
+
+            // Run specified method
+            $val = $handler->{$handler::SET_HANDLER}($val);
         }
 
         // Set property
@@ -99,10 +155,12 @@ abstract class Model
 
         // Go through each property, and if it is a defined attribute, set it
         foreach ($properties as $name => $val) {
+            // Check if the attribute is defined for this model
             if (! isset($this->definedAttributes[$name])) {
                 continue;
             }
 
+            // Set the property
             $this->setProperty($name, $val);
         }
 
@@ -136,8 +194,31 @@ abstract class Model
             return null;
         }
 
-        return isset($this->attributes[$name]) ?
-            $this->attributes[$name] :
-            null;
+        // Check if property has been set
+        if (! isset($this->attributes[$name])) {
+            return null;
+        }
+
+        // Set a val variable
+        $val = $this->attributes[$name];
+
+        // Get this property type
+        $type = $this->definedAttributes[$name]['type'];
+        $typeHandlerClass = ucfirst($type) . 'Handler';
+
+        // Set custom handler class name
+        $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+
+        // Check for custom handler class
+        if (class_exists($customHandlerClass)) {
+            // Create instance of handler class
+            $handler = new $customHandlerClass;
+
+            // Run specified method
+            $val = $handler->{$handler::GET_HANDLER}($val);
+        }
+
+        // Return the property if it exists otherwise return null
+        return $val;
     }
 }
