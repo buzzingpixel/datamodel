@@ -20,4 +20,5 @@ class DataType
     const BOOL = 'bool';
     const INSTANCE = 'instance';
     const ENUM = 'enum';
+    const EMAIL = 'email';
 }

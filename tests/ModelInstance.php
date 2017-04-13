@@ -14,6 +14,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property bool $boolProp
  * @property bool $instanceProp
  * @property mixed $enumProp
+ * @property string $emailProp
  */
 class ModelInstance extends Model
 {
@@ -44,7 +45,8 @@ class ModelInstance extends Model
                     'someVal',
                     1.2
                 )
-            )
+            ),
+            'emailProp' => DataType::EMAIL
         );
     }
 }
