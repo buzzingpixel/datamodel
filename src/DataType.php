@@ -19,4 +19,5 @@ class DataType
     const FLOAT = 'float';
     const BOOL = 'bool';
     const INSTANCE = 'instance';
+    const ENUM = 'enum';
 }

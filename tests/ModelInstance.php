@@ -13,6 +13,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property float $floatProp
  * @property bool $boolProp
  * @property bool $instanceProp
+ * @property mixed $enumProp
  */
 class ModelInstance extends Model
 {
@@ -35,6 +36,14 @@ class ModelInstance extends Model
             'instanceProp' => array(
                 'type' => DataType::INSTANCE,
                 'expect' => '\TestingClasses\TestingClass'
+            ),
+            'enumProp' => array(
+                'type' => DataType::ENUM,
+                'expect' => array(
+                    123,
+                    'someVal',
+                    1.2
+                )
             )
         );
     }
