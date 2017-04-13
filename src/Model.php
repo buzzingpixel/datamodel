@@ -13,6 +13,7 @@ namespace BuzzingPixel\DataModel;
  */
 abstract class Model
 {
+    /** @var string $handlerNamespace */
     private $handlerNamespace = '\BuzzingPixel\DataModel\Service\DataHandler\\';
 
     /** @var bool $suppressWarnings */

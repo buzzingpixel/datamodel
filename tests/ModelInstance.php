@@ -10,6 +10,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property string $stringProp
  * @property int $intProp
  * @property int $intPropExtra
+ * @property float $floatProp
  */
 class ModelInstance extends Model
 {
@@ -26,7 +27,8 @@ class ModelInstance extends Model
             'intProp' => DataType::INT,
             'intPropExtra' => array(
                 'type' => DataType::INT
-            )
+            ),
+            'floatProp' => DataType::FLOAT
         );
     }
 }
