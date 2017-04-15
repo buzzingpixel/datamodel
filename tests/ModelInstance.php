@@ -20,8 +20,9 @@ use BuzzingPixel\DataModel\DataType;
  * @property-read string $customGetterTest
  * @property string $customGetPropTest
  * @property array $arrayPropTest
- * @property array $intArrayPropTest
- * @property array $stringArrayPropTest
+ * @property int[] $intArrayPropTest
+ * @property string[] $stringArrayPropTest
+ * @property float[] $floatArrayPropTest
  */
 class ModelInstance extends Model
 {
@@ -58,7 +59,8 @@ class ModelInstance extends Model
             'customGetPropTest' => DataType::MIXED,
             'arrayPropTest' => DataType::ARR,
             'intArrayPropTest' => DataType::INT_ARRAY,
-            'stringArrayPropTest' => DataType::STRING_ARRAY
+            'stringArrayPropTest' => DataType::STRING_ARRAY,
+            'floatArrayPropTest' => DataType::FLOAT_ARRAY
         );
     }
 

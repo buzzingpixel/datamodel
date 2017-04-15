@@ -19,6 +19,7 @@ class DataType
     const INT = 'int';
     const INT_ARRAY = 'intArray';
     const FLOAT = 'float';
+    const FLOAT_ARRAY = 'floatArray';
     const BOOL = 'bool';
     const INSTANCE = 'instance';
     const ENUM = 'enum';
