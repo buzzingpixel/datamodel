@@ -1,5 +1,6 @@
 {
     "name": "buzzingpixel/datamodel",
+    "version": "0.0.1",
     "type": "library",
     "description": "Data modeling",
     "license": "Apache-2.0",
