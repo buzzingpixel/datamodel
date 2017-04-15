@@ -21,6 +21,7 @@ class DataType
     const FLOAT = 'float';
     const FLOAT_ARRAY = 'floatArray';
     const INSTANCE = 'instance';
+    const INSTANCE_ARRAY = 'instanceArray';
     const INT = 'int';
     const INT_ARRAY = 'intArray';
     const MIXED = 'mixed';

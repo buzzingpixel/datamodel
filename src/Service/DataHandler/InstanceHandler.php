@@ -22,7 +22,7 @@ class InstanceHandler
      * @param array $def
      * @return mixed
      */
-    public function commonHandler($val, $def)
+    public function commonHandler($val, $def = array())
     {
         // Make sure our instance def exists and the val is an instance of it
         if (! isset($def['expect']) || ! $val instanceof $def['expect']) {
