@@ -4,6 +4,7 @@ namespace TestingClasses;
 
 use BuzzingPixel\DataModel\Model;
 use BuzzingPixel\DataModel\DataType;
+use BuzzingPixel\DataModel\ModelCollection;
 
 /**
  * Class ModelInstance
@@ -27,6 +28,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property float[] $floatArrayPropTest
  * @property string[] $emailArrayPropTest
  * @property TestingClass[] $instanceArrayPropTest
+ * @property ModelCollection $collectionPropTest
  */
 class ModelInstance extends Model
 {
@@ -70,7 +72,8 @@ class ModelInstance extends Model
             'instanceArrayPropTest' => array(
                 'type' => DataType::INSTANCE_ARRAY,
                 'expect' => '\TestingClasses\TestingClass'
-            )
+            ),
+            'collectionPropTest' => DataType::COLLECTION
         );
     }
 

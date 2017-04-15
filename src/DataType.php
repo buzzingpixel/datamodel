@@ -15,6 +15,7 @@ class DataType
 {
     const ARR = 'array';
     const BOOL = 'bool';
+    const COLLECTION = 'collection';
     const EMAIL = 'email';
     const EMAIL_ARRAY = 'emailArray';
     const ENUM = 'enum';
