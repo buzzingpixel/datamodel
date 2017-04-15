@@ -1,5 +1,7 @@
 <?php
 
+namespace ModelTests;
+
 use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 

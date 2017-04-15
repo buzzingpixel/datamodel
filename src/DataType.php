@@ -13,16 +13,17 @@ namespace BuzzingPixel\DataModel;
  */
 class DataType
 {
+    const ARR = 'array';
+    const BOOL = 'bool';
+    const EMAIL = 'email';
+    const EMAIL_ARRAY = 'emailArray';
+    const ENUM = 'enum';
+    const FLOAT = 'float';
+    const FLOAT_ARRAY = 'floatArray';
+    const INSTANCE = 'instance';
+    const INT = 'int';
+    const INT_ARRAY = 'intArray';
     const MIXED = 'mixed';
     const STRING = 'string';
     const STRING_ARRAY = 'stringArray';
-    const INT = 'int';
-    const INT_ARRAY = 'intArray';
-    const FLOAT = 'float';
-    const FLOAT_ARRAY = 'floatArray';
-    const BOOL = 'bool';
-    const INSTANCE = 'instance';
-    const ENUM = 'enum';
-    const EMAIL = 'email';
-    const ARR = 'array';
 }

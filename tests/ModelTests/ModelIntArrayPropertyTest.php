@@ -1,5 +1,7 @@
 <?php
 
+namespace ModelTests;
+
 use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
@@ -38,11 +40,7 @@ class ModelIntArrayPropertyTest extends TestCase
         self::assertInternalType('integer', $model->intArrayPropTest[2]);
         self::assertEquals(145, $model->intArrayPropTest[2]);
 
-        $model->intArrayPropTest = array(
-            '12345',
-            '14asdf56',
-            'testing'
-        );
+        $model->intArrayPropTest = array('12345', '14asdf56', 'testing');
         self::assertInternalType('array', $model->intArrayPropTest);
         self::assertCount(3, $model->intArrayPropTest);
         self::assertInternalType('integer', $model->intArrayPropTest[0]);

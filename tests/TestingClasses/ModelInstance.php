@@ -25,6 +25,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property int[] $intArrayPropTest
  * @property string[] $stringArrayPropTest
  * @property float[] $floatArrayPropTest
+ * @property string[] $emailArrayPropTest
  */
 class ModelInstance extends Model
 {
@@ -63,7 +64,8 @@ class ModelInstance extends Model
             'arrayPropTest' => DataType::ARR,
             'intArrayPropTest' => DataType::INT_ARRAY,
             'stringArrayPropTest' => DataType::STRING_ARRAY,
-            'floatArrayPropTest' => DataType::FLOAT_ARRAY
+            'floatArrayPropTest' => DataType::FLOAT_ARRAY,
+            'emailArrayPropTest' => DataType::EMAIL_ARRAY
         );
     }
 
