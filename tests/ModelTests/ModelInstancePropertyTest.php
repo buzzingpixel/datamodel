@@ -1,6 +1,9 @@
 <?php
 
+namespace ModelTests;
+
 use PHPUnit\Framework\TestCase;
+use TestingClasses\ModelInstance;
 use TestingClasses\TestingClass;
 use TestingClasses\TestingClass2;
 
@@ -25,9 +28,6 @@ class ModelInstancePropertyTest extends TestCase
         self::assertNull($model->instanceProp);
 
         $model->instanceProp = new TestingClass();
-        self::assertInstanceOf(
-            '\TestingClasses\TestingClass',
-            $model->instanceProp
-        );
+        self::assertInstanceOf('\TestingClasses\TestingClass', $model->instanceProp);
     }
 }

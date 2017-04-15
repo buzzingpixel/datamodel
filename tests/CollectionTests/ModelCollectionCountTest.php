@@ -1,8 +1,11 @@
 <?php
 
+namespace CollectionTests;
+
 use PHPUnit\Framework\TestCase;
 
 use BuzzingPixel\DataModel\ModelCollection;
+use TestingClasses\ModelInstance;
 
 /**
  * Class ModelCollectionCountTest
@@ -14,10 +17,7 @@ class ModelCollectionCountTest extends TestCase
      */
     public function testCount()
     {
-        $items = array(
-            new ModelInstance(),
-            new ModelInstance()
-        );
+        $items = array(new ModelInstance(), new ModelInstance());
 
         $collection = new ModelCollection($items);
 

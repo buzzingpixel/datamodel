@@ -1,5 +1,7 @@
 <?php
 
+namespace TestingClasses;
+
 use BuzzingPixel\DataModel\Model;
 use BuzzingPixel\DataModel\DataType;
 
@@ -29,6 +31,7 @@ class ModelInstance extends Model
     /** @noinspection PhpMissingParentCallCommonInspection */
     /**
      * Define attributes
+     *
      * @return array
      */
     public function defineAttributes()
@@ -69,6 +72,7 @@ class ModelInstance extends Model
 
     /**
      * Set customSetterProperty
+     *
      * @param mixed $val
      */
     protected function setCustomSetterProperty($val)
@@ -78,16 +82,18 @@ class ModelInstance extends Model
 
     /**
      * Set customSetTest
+     *
      * @param mixed $val
      * @return int
      */
     protected function setCustomSetTest($val)
     {
-        return (int) $val;
+        return (int)$val;
     }
 
     /**
      * Get customGetterTest
+     *
      * @return string
      */
     protected function getCustomGetterTest()
@@ -97,6 +103,7 @@ class ModelInstance extends Model
 
     /**
      * Get customGetPropTest
+     *
      * @param mixed $existingVal
      * @return mixed
      */

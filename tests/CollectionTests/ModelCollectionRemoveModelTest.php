@@ -1,8 +1,11 @@
 <?php
 
+namespace CollectionTests;
+
 use PHPUnit\Framework\TestCase;
 
 use BuzzingPixel\DataModel\ModelCollection;
+use TestingClasses\ModelInstance;
 
 /**
  * Class ModelCollectionRemoveModelTest
@@ -19,12 +22,7 @@ class ModelCollectionRemoveModelTest extends TestCase
         $model3 = new ModelInstance();
         $model4 = new ModelInstance();
 
-        $collection = new ModelCollection(array(
-            $model1,
-            $model2,
-            $model3,
-            $model4
-        ));
+        $collection = new ModelCollection(array($model1, $model2, $model3, $model4));
 
         self::assertCount(4, $collection);
         $uuids = $collection->pluck('uuid');

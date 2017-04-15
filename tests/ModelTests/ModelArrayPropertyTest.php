@@ -1,6 +1,9 @@
 <?php
 
+namespace ModelTests;
+
 use PHPUnit\Framework\TestCase;
+use TestingClasses\ModelInstance;
 use TestingClasses\TestingClass;
 use TestingClasses\TestingClass2;
 
@@ -34,10 +37,7 @@ class ModelArrayPropertyTest extends TestCase
         self::assertCount(1, $model->arrayPropTest);
         self::assertInstanceOf('\TestingClasses\TestingClass', $model->arrayPropTest[0]);
 
-        $model->arrayPropTest = array(
-            $testClass1,
-            $testClass2
-        );
+        $model->arrayPropTest = array($testClass1, $testClass2);
         self::assertInternalType('array', $model->arrayPropTest);
         self::assertCount(2, $model->arrayPropTest);
         self::assertInstanceOf('\TestingClasses\TestingClass', $model->arrayPropTest[0]);

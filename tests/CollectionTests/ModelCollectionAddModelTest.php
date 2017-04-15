@@ -1,8 +1,11 @@
 <?php
 
+namespace CollectionTests;
+
 use PHPUnit\Framework\TestCase;
 
 use BuzzingPixel\DataModel\ModelCollection;
+use TestingClasses\ModelInstance;
 
 /**
  * Class ModelCollectionAddModelTest
@@ -30,16 +33,9 @@ class ModelCollectionAddModelTest extends TestCase
      */
     public function testAddModels()
     {
-        $items = array(
-            new ModelInstance(),
-            new ModelInstance()
-        );
+        $items = array(new ModelInstance(), new ModelInstance());
 
-        $items2 = array(
-            new ModelInstance(),
-            new ModelInstance(),
-            new ModelInstance()
-        );
+        $items2 = array(new ModelInstance(), new ModelInstance(), new ModelInstance());
 
         $collection = new ModelCollection();
 
@@ -55,16 +51,9 @@ class ModelCollectionAddModelTest extends TestCase
      */
     public function testSetModels()
     {
-        $items = array(
-            new ModelInstance(),
-            new ModelInstance()
-        );
+        $items = array(new ModelInstance(), new ModelInstance());
 
-        $items2 = array(
-            new ModelInstance(),
-            new ModelInstance(),
-            new ModelInstance()
-        );
+        $items2 = array(new ModelInstance(), new ModelInstance(), new ModelInstance());
 
         $collection = new ModelCollection();
 
