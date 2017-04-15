@@ -22,4 +22,5 @@ class DataType
     const ENUM = 'enum';
     const EMAIL = 'email';
     const ARR = 'array';
+    const INT_ARRAY = 'intArray';
 }
