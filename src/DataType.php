@@ -21,4 +21,5 @@ class DataType
     const INSTANCE = 'instance';
     const ENUM = 'enum';
     const EMAIL = 'email';
+    const ARR = 'array';
 }

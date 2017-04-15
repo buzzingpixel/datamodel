@@ -22,7 +22,7 @@ class EnumHandler
      * @param array $def
      * @return mixed
      */
-    public function commonHandler($val, $def)
+    public function commonHandler($val, $def = array())
     {
         // Make sure our instance def exists and is array and val in array
         if (! isset($def['expect']) ||

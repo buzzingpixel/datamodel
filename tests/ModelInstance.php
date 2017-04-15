@@ -19,6 +19,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property int $customSetTest
  * @property-read string $customGetterTest
  * @property string $customGetPropTest
+ * @property array $arrayPropTest
  */
 class ModelInstance extends Model
 {
@@ -52,7 +53,8 @@ class ModelInstance extends Model
             ),
             'emailProp' => DataType::EMAIL,
             'customSetTest' => DataType::MIXED,
-            'customGetPropTest' => DataType::MIXED
+            'customGetPropTest' => DataType::MIXED,
+            'arrayPropTest' => DataType::ARR
         );
     }
 
