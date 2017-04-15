@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ModelCustomSetterTest extends TestCase
 {
     /**
-     * Test boolean model property type
+     * Test model custom setters
      */
     public function testCustomSetter()
     {

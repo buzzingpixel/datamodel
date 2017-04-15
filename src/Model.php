@@ -12,6 +12,8 @@ use BuzzingPixel\DataModel\Service\Generator\Uuid;
 
 /**
  * Class Model
+ *
+ * @property-read string $uuid
  */
 abstract class Model
 {
@@ -154,12 +156,15 @@ abstract class Model
     {
         // Make sure this is a property we can set
         if (! isset($this->definedAttributes[$name])) {
+            // Check for custom setter
             $customSetter = $this->checkForSetter($name, $val);
 
+            // If there was a custom setter method, return instance
             if ($customSetter['methodExists']) {
                 return $this;
             }
 
+            // Set a warning if we are not suppressing warnings
             if (! $this->suppressWarnings) {
                 trigger_error("Model property {$name} is not defined");
             }
@@ -190,6 +195,7 @@ abstract class Model
         // Check for custom setter
         $customSetter = $this->checkForSetter($name, $val);
 
+        // Get the custom setter val if it exists
         if ($customSetter['methodExists']) {
             $val = $customSetter['val'];
         }
@@ -240,17 +246,54 @@ abstract class Model
     }
 
     /**
+     * Check for getter
+     * @param string $name
+     * @param mixed $existingVal
+     * @return array
+     */
+    private function checkForGetter($name, $existingVal = null)
+    {
+        // Set the method to use
+        $method = 'get' . ucfirst($name);
+
+        // Check for method
+        if (! method_exists($this, $method)) {
+            return array(
+                'methodExists' => false,
+                'val' => null
+            );
+        }
+
+        // Run the method and return the value
+        return array(
+            'methodExists' => true,
+            'val' => $this->{$method}($existingVal)
+        );
+    }
+
+    /**
      * Get property
-     * @param $name
+     * @param string $name
      * @return mixed
      */
     public function getProperty($name)
     {
         // Make sure this is a property we can get
         if (! isset($this->definedAttributes[$name])) {
+            // Check for custom getter
+            $customGetter = $this->checkForGetter($name);
+
+            // If the custom getter method exists, return the value
+            if ($customGetter['methodExists']) {
+                return $customGetter['val'];
+            }
+
+            // Set a warning if we are not suppressing warnings
             if (! $this->suppressWarnings) {
                 trigger_error("Model property {$name} is not defined");
             }
+
+            // Return null since we have no property and no getter
             return null;
         }
 
@@ -281,7 +324,15 @@ abstract class Model
             );
         }
 
-        // Return the property if it exists otherwise return null
+        // Check for custom getter
+        $customGetter = $this->checkForGetter($name, $val);
+
+        // If the custom getter method exists, get the value
+        if ($customGetter['methodExists']) {
+            $val = $customGetter['val'];
+        }
+
+        // Return the value
         return $val;
     }
 }

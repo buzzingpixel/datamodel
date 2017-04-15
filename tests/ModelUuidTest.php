@@ -16,10 +16,14 @@ class ModelUuidTest extends TestCase
         $model2 = new ModelInstance();
 
         self::assertNotEmpty($model->getUuid());
+        self::assertNotEmpty($model->uuid);
         self::assertNotEmpty($model2->getUuid());
+        self::assertNotEmpty($model2->uuid);
 
         self::assertEquals($model->getUuid(), $model->getUuid());
+        self::assertEquals($model->getUuid(), $model->uuid);
         self::assertEquals($model2->getUuid(), $model2->getUuid());
+        self::assertEquals($model2->getUuid(), $model2->uuid);
 
         self::assertNotEquals($model->getUuid(), $model2->getUuid());
     }
