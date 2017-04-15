@@ -22,14 +22,19 @@ class ModelIntArrayPropertyTest extends TestCase
         $model->intArrayPropTest = 'test|test';
         self::assertInternalType('array', $model->intArrayPropTest);
         self::assertCount(2, $model->intArrayPropTest);
+        self::assertInternalType('integer', $model->intArrayPropTest[0]);
         self::assertEquals(0, $model->intArrayPropTest[0]);
+        self::assertInternalType('integer', $model->intArrayPropTest[1]);
         self::assertEquals(0, $model->intArrayPropTest[1]);
 
         $model->intArrayPropTest = '12|test|145asdf';
         self::assertInternalType('array', $model->intArrayPropTest);
         self::assertCount(3, $model->intArrayPropTest);
+        self::assertInternalType('integer', $model->intArrayPropTest[0]);
         self::assertEquals(12, $model->intArrayPropTest[0]);
+        self::assertInternalType('integer', $model->intArrayPropTest[1]);
         self::assertEquals(0, $model->intArrayPropTest[1]);
+        self::assertInternalType('integer', $model->intArrayPropTest[2]);
         self::assertEquals(145, $model->intArrayPropTest[2]);
 
         $model->intArrayPropTest = array(
@@ -39,8 +44,11 @@ class ModelIntArrayPropertyTest extends TestCase
         );
         self::assertInternalType('array', $model->intArrayPropTest);
         self::assertCount(3, $model->intArrayPropTest);
+        self::assertInternalType('integer', $model->intArrayPropTest[0]);
         self::assertEquals(12345, $model->intArrayPropTest[0]);
+        self::assertInternalType('integer', $model->intArrayPropTest[1]);
         self::assertEquals(14, $model->intArrayPropTest[1]);
+        self::assertInternalType('integer', $model->intArrayPropTest[2]);
         self::assertEquals(0, $model->intArrayPropTest[2]);
     }
 }

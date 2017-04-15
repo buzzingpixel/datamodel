@@ -9,9 +9,9 @@
 namespace BuzzingPixel\DataModel\Service\DataHandler;
 
 /**
- * Class IntArrayHandler
+ * Class StringArrayHandler
  */
-class IntArrayHandler
+class StringArrayHandler
 {
     const GET_HANDLER = 'commonHandler';
     const SET_HANDLER = 'commonHandler';
@@ -28,8 +28,8 @@ class IntArrayHandler
         $arrayHandler = new ArrayHandler();
         $val = $arrayHandler->commonHandler($val, $def);
 
-        // Iterate through each of the items and cast to handler
-        $intHandler = new IntHandler();
+        // Iterate through each of the items and send to handler
+        $intHandler = new StringHandler();
         foreach ($val as $key => $item) {
             $val[$key] = $intHandler->commonHandler($item);
         }
