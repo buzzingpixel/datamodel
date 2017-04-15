@@ -8,11 +8,16 @@
 
 namespace BuzzingPixel\DataModel;
 
+use BuzzingPixel\DataModel\Service\Generator\Uuid;
+
 /**
  * Class Model
  */
 abstract class Model
 {
+    /** @var string $uuid */
+    private $uuid;
+
     /** @var string $handlerNamespace */
     private $handlerNamespace = '\BuzzingPixel\DataModel\Service\DataHandler\\';
 
@@ -34,6 +39,10 @@ abstract class Model
         $properties = array(),
         $suppressWarnings = false
     ) {
+        // Set the model's uuid
+        $uuidService = new Uuid();
+        $this->uuid = $uuidService->generate();
+
         // Set defined attributes
         $this->setDefinedAttributes($this->defineAttributes());
 
@@ -42,6 +51,14 @@ abstract class Model
 
         // Set suppress warnings
         $this->suppressWarnings = $suppressWarnings;
+    }
+
+    /**
+     * Get uuid
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
     }
 
     /**
