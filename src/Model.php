@@ -119,15 +119,47 @@ abstract class Model
     }
 
     /**
+     * Check for setter
+     * @param string $name
+     * @param mixed $val
+     * @return array
+     */
+    private function checkForSetter($name, $val)
+    {
+        // Set the method to use
+        $method = 'set' . ucfirst($name);
+
+        // Check for method
+        if (! method_exists($this, $method)) {
+            return array(
+                'methodExists' => false,
+                'val' => null
+            );
+        }
+
+        // Run the method and return the value
+        return array(
+            'methodExists' => true,
+            'val' => $this->{$method}($val)
+        );
+    }
+
+    /**
      * Setter
-     * @param $name
-     * @param $val
+     * @param string $name
+     * @param mixed $val
      * @return self
      */
     public function setProperty($name, $val)
     {
         // Make sure this is a property we can set
         if (! isset($this->definedAttributes[$name])) {
+            $customSetter = $this->checkForSetter($name, $val);
+
+            if ($customSetter['methodExists']) {
+                return $this;
+            }
+
             if (! $this->suppressWarnings) {
                 trigger_error("Model property {$name} is not defined");
             }
@@ -153,6 +185,13 @@ abstract class Model
                 $val,
                 $this->definedAttributes[$name]
             );
+        }
+
+        // Check for custom setter
+        $customSetter = $this->checkForSetter($name, $val);
+
+        if ($customSetter['methodExists']) {
+            $val = $customSetter['val'];
         }
 
         // Set property

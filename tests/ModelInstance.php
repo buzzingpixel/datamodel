@@ -15,6 +15,7 @@ use BuzzingPixel\DataModel\DataType;
  * @property bool $instanceProp
  * @property mixed $enumProp
  * @property string $emailProp
+ * @property int $customSetTest
  */
 class ModelInstance extends Model
 {
@@ -46,7 +47,30 @@ class ModelInstance extends Model
                     1.2
                 )
             ),
-            'emailProp' => DataType::EMAIL
+            'emailProp' => DataType::EMAIL,
+            'customSetTest' => DataType::MIXED
         );
+    }
+
+    /** @var string $testCustomSetterProperty */
+    public $testCustomSetterProperty = '';
+
+    /**
+     * Set customSetterProperty
+     * @param mixed $val
+     */
+    protected function setCustomSetterProperty($val)
+    {
+        $this->testCustomSetterProperty = $val;
+    }
+
+    /**
+     * Set customSetTest
+     * @param mixed $val
+     * @return int
+     */
+    protected function setCustomSetTest($val)
+    {
+        return (int) $val;
     }
 }
