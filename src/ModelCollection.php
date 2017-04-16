@@ -191,4 +191,23 @@ class ModelCollection implements \Iterator, \Countable
         // Return the array
         return $returnArray;
     }
+
+    /**
+     * As array
+     * @param string $indexedBy
+     * @return array
+     */
+    public function asArray($indexedBy = 'uuid')
+    {
+        // Return array
+        $returnArray = array();
+
+        // Iterate through models and get asArray
+        foreach ($this->models as $model) {
+            $returnArray[$model->{$indexedBy}] = $model->asArray();
+        }
+
+        // Return the array
+        return $returnArray;
+    }
 }
