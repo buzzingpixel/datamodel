@@ -181,7 +181,9 @@ abstract class Model
         $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
 
         // Check for custom handler class
-        if (class_exists($customHandlerClass)) {
+        if (class_exists($customHandlerClass) &&
+            defined("{$customHandlerClass}::SET_HANDLER")
+        ) {
             // Create instance of handler class
             $handler = new $customHandlerClass;
 
@@ -313,7 +315,9 @@ abstract class Model
         $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
 
         // Check for custom handler class
-        if (class_exists($customHandlerClass)) {
+        if (class_exists($customHandlerClass) &&
+            defined("{$customHandlerClass}::GET_HANDLER")
+        ) {
             // Create instance of handler class
             $handler = new $customHandlerClass;
 
@@ -334,5 +338,47 @@ abstract class Model
 
         // Return the value
         return $val;
+    }
+
+    /**
+     * As array
+     * @return array
+     */
+    public function asArray()
+    {
+        // Return array
+        $returnArray = array(
+            'uuid' => $this->uuid
+        );
+
+        // Iterate through the defined attributes
+        foreach ($this->definedAttributes as $attribute => $def) {
+            // Get the property value
+            $val = $this->{$attribute};
+
+            // Get this property type
+            $type = $def['type'];
+            $typeHandlerClass = ucfirst($type) . 'Handler';
+
+            // Set custom handler class name
+            $custHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+
+            // Check for custom handler class
+            if (class_exists($custHandlerClass) &&
+                defined("{$custHandlerClass}::AS_ARRAY_HANDLER")
+            ) {
+                // Create instance of handler class
+                $handler = new $custHandlerClass;
+
+                // Run specified method
+                $val = $handler->{$handler::AS_ARRAY_HANDLER} ($val, $def);
+            }
+
+            // Add val to array
+            $returnArray[$attribute] = $val;
+        }
+
+        // Return the array
+        return $returnArray;
     }
 }
