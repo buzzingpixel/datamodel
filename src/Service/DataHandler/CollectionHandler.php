@@ -17,20 +17,37 @@ class CollectionHandler
 {
     const GET_HANDLER = 'commonHandler';
     const SET_HANDLER = 'commonHandler';
+    const AS_ARRAY_HANDLER = 'asArrayHandler';
 
     /**
      * Common method to handle data
      * @param mixed $val
-     * @return mixed
+     * @return ModelCollection
      */
     public function commonHandler($val)
     {
-        // Make sure our instance def exists and the val is an instance of it
+        // Make sure $val is an instance of ModelCollection
         if (! $val instanceof ModelCollection) {
             return null;
         }
 
         // Since the value is an instance of expected, return it
         return $val;
+    }
+
+    /**
+     * Handle as array
+     * @param mixed $val
+     * @return array
+     */
+    public function asArrayHandler($val)
+    {
+        // Make sure $val is an instance of ModelCollection
+        if (! $val instanceof ModelCollection) {
+            return null;
+        }
+
+        // Return the model collection as an array
+        return $val->asArray();
     }
 }
