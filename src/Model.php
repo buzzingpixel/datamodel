@@ -175,6 +175,8 @@ abstract class Model
 
         // Get this property type
         $type = $this->definedAttributes[$name]['type'];
+
+        // Get type handler class
         $typeHandlerClass = ucfirst($type) . 'Handler';
 
         // Set custom handler class name
@@ -193,6 +195,28 @@ abstract class Model
                 $val,
                 $this->definedAttributes[$name]
             );
+        }
+
+        // Get this class
+        $thisClass = get_class($this);
+
+        // Check for custom handler
+        if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
+            isset($thisClass::CUSTOM_HANDLERS[$type])
+        ) {
+            // Get the handler class string
+            $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
+
+            // Create instance of handler class
+            $handler = new $handlerClassString();
+
+            // Run specified method if defined
+            if (defined("{$handlerClassString}::SET_HANDLER")) {
+                $val = $handler->{$handler::SET_HANDLER}(
+                    $val,
+                    $this->definedAttributes[$name]
+                );
+            }
         }
 
         // Check for custom setter
@@ -330,6 +354,28 @@ abstract class Model
             );
         }
 
+        // Get this class
+        $thisClass = get_class($this);
+
+        // Check for custom handler
+        if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
+            isset($thisClass::CUSTOM_HANDLERS[$type])
+        ) {
+            // Get the handler class string
+            $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
+
+            // Create instance of handler class
+            $handler = new $handlerClassString();
+
+            // Run specified method if defined
+            if (defined("{$handlerClassString}::GET_HANDLER")) {
+                $val = $handler->{$handler::GET_HANDLER}(
+                    $val,
+                    $this->definedAttributes[$name]
+                );
+            }
+        }
+
         // Check for custom getter
         $customGetter = $this->checkForGetter($name, $val);
 
@@ -375,6 +421,25 @@ abstract class Model
 
                 // Run specified method
                 $val = $handler->{$handler::AS_ARRAY_HANDLER} ($val, $def);
+            }
+
+            // Get this class
+            $thisClass = get_class($this);
+
+            // Check for custom handler
+            if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
+                isset($thisClass::CUSTOM_HANDLERS[$type])
+            ) {
+                // Get the handler class string
+                $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
+
+                // Create instance of handler class
+                $handler = new $handlerClassString();
+
+                // Run specified method if defined
+                if (defined("{$handlerClassString}::AS_ARRAY_HANDLER")) {
+                    $val = $handler->{$handler::AS_ARRAY_HANDLER}($val, $def);
+                }
             }
 
             // Add val to array
