@@ -17,11 +17,11 @@ use BuzzingPixel\DataModel\Service\Generator\Uuid;
  */
 abstract class Model
 {
+    /** @var string HANDLER_NAMESPACE */
+    const HANDLER_NAMESPACE = '\BuzzingPixel\DataModel\Service\DataHandler\\';
+
     /** @var string $uuid */
     private $uuid;
-
-    /** @var string $handlerNamespace */
-    private $handlerNamespace = '\BuzzingPixel\DataModel\Service\DataHandler\\';
 
     /** @var bool $suppressWarnings */
     private $suppressWarnings = false;
@@ -178,7 +178,8 @@ abstract class Model
         $typeHandlerClass = ucfirst($type) . 'Handler';
 
         // Set custom handler class name
-        $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+        $handlerNamespace = self::HANDLER_NAMESPACE;
+        $customHandlerClass = "{$handlerNamespace}{$typeHandlerClass}";
 
         // Check for custom handler class
         if (class_exists($customHandlerClass) &&
@@ -312,7 +313,8 @@ abstract class Model
         $typeHandlerClass = ucfirst($type) . 'Handler';
 
         // Set custom handler class name
-        $customHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+        $handlerNamespace = self::HANDLER_NAMESPACE;
+        $customHandlerClass = "{$handlerNamespace}{$typeHandlerClass}";
 
         // Check for custom handler class
         if (class_exists($customHandlerClass) &&
@@ -361,7 +363,8 @@ abstract class Model
             $typeHandlerClass = ucfirst($type) . 'Handler';
 
             // Set custom handler class name
-            $custHandlerClass = "{$this->handlerNamespace}{$typeHandlerClass}";
+            $handlerNamespace = self::HANDLER_NAMESPACE;
+            $custHandlerClass = "{$handlerNamespace}{$typeHandlerClass}";
 
             // Check for custom handler class
             if (class_exists($custHandlerClass) &&
