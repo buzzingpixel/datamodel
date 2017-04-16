@@ -15,8 +15,13 @@ use BuzzingPixel\DataModel\ModelCollection;
  */
 class CollectionHandler
 {
+    /** @var string GET_HANDLER */
     const GET_HANDLER = 'commonHandler';
+
+    /** @var string SET_HANDLER */
     const SET_HANDLER = 'commonHandler';
+
+    /** @var string AS_ARRAY_HANDLER */
     const AS_ARRAY_HANDLER = 'asArrayHandler';
 
     /**

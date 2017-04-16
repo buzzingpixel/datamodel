@@ -13,7 +13,10 @@ namespace BuzzingPixel\DataModel\Service\DataHandler;
  */
 class EmailHandler
 {
+    /** @var string GET_HANDLER */
     const GET_HANDLER = 'commonHandler';
+
+    /** @var string SET_HANDLER */
     const SET_HANDLER = 'commonHandler';
 
     /**
