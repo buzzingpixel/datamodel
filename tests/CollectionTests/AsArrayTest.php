@@ -9,7 +9,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class AsArrayTest
- * @group testing
+ * @group collectionTests
  */
 class AsArrayTest extends TestCase
 {

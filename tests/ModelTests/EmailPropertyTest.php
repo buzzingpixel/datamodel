@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class EmailPropertyTest
+ * @group modelTests
  */
 class EmailPropertyTest extends TestCase
 {

@@ -9,6 +9,7 @@ use TestingClasses\TestingClass2;
 
 /**
  * Class InstancePropertyTest
+ * @group modelTests
  */
 class InstancePropertyTest extends TestCase
 {

@@ -9,6 +9,7 @@ use TestingClasses\TestingClass2;
 
 /**
  * Class EnumPropertyTest
+ * @group modelTests
  */
 class EnumPropertyTest extends TestCase
 {

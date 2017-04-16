@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class StringPropertyTest
+ * @group modelTests
  */
 class StringPropertyTest extends TestCase
 {

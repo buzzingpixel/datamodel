@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class ModelMixedPropertyTest
+ * @group modelTests
  */
 class MixedPropertyTest extends TestCase
 {

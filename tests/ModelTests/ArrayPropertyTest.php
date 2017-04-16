@@ -9,6 +9,7 @@ use TestingClasses\TestingClass2;
 
 /**
  * Class ArrayPropertyTest
+ * @group modelTests
  */
 class ArrayPropertyTest extends TestCase
 {

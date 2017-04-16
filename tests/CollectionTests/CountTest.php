@@ -9,6 +9,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class CountTest
+ * @group collectionTests
  */
 class CountTest extends TestCase
 {

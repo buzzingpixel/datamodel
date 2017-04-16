@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class UuidTest
+ * @group modelTests
  */
 class UuidTest extends TestCase
 {

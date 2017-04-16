@@ -9,6 +9,7 @@ use BuzzingPixel\DataModel\ModelCollection;
 
 /**
  * Class CollectionPropertyTest
+ * @group modelTests
  */
 class CollectionPropertyTest extends TestCase
 {

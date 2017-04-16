@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class AsArrayTest
+ * @group modelTests
  */
 class AsArrayTest extends TestCase
 {

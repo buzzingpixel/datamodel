@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class CustomSetterTest
+ * @group modelTests
  */
 class CustomSetterTest extends TestCase
 {

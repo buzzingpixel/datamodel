@@ -9,6 +9,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class ModelCollectionIteratorTest
+ * @group collectionTests
  */
 class IteratorTest extends TestCase
 {

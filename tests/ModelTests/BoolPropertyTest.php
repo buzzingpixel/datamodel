@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class BoolPropertyTest
+ * @group modelTests
  */
 class BoolPropertyTest extends TestCase
 {

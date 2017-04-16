@@ -7,6 +7,7 @@ use TestingClasses\ModelInstance;
 
 /**
  * Class IntArrayPropertyTest
+ * @group modelTests
  */
 class IntArrayPropertyTest extends TestCase
 {
