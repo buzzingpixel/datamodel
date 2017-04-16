@@ -8,7 +8,7 @@ use TestingClasses\ModelInstance;
 /**
  * Class ModelMixedPropertyTest
  */
-class ModelMixedPropertyTest extends TestCase
+class MixedPropertyTest extends TestCase
 {
     /**
      * Test mixed model property type

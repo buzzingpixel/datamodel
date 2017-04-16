@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelIntArrayPropertyTest
+ * Class EmailArrayPropertyTest
  */
-class ModelEmailArrayPropertyTest extends TestCase
+class EmailArrayPropertyTest extends TestCase
 {
     /**
      * Test instance model property type

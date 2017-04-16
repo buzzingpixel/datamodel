@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelIntPropertyTest
+ * Class IntPropertyTest
  */
-class ModelIntPropertyTest extends TestCase
+class IntPropertyTest extends TestCase
 {
     /**
      * Test integer model property type

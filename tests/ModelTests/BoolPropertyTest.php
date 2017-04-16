@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelBoolPropertyTest
+ * Class BoolPropertyTest
  */
-class ModelBoolPropertyTest extends TestCase
+class BoolPropertyTest extends TestCase
 {
     /**
      * Test boolean model property type

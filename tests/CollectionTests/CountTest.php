@@ -8,9 +8,9 @@ use BuzzingPixel\DataModel\ModelCollection;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelCollectionCountTest
+ * Class CountTest
  */
-class ModelCollectionCountTest extends TestCase
+class CountTest extends TestCase
 {
     /**
      * Test count

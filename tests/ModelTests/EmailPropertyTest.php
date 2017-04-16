@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelEmailPropertyTest
+ * Class EmailPropertyTest
  */
-class ModelEmailPropertyTest extends TestCase
+class EmailPropertyTest extends TestCase
 {
     /**
      * Test email model property type

@@ -8,9 +8,9 @@ use BuzzingPixel\DataModel\ModelCollection;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelCollectionRemoveModelTest
+ * Class RemoveModelTest
  */
-class ModelCollectionRemoveModelTest extends TestCase
+class RemoveModelTest extends TestCase
 {
     /**
      * Test removeModel

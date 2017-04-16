@@ -10,7 +10,7 @@ use TestingClasses\ModelInstance;
 /**
  * Class ModelCollectionAddModelTest
  */
-class ModelCollectionAddModelTest extends TestCase
+class AddModelTest extends TestCase
 {
     /**
      * Test add model

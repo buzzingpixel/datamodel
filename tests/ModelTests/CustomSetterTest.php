@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelCustomSetterTest
+ * Class CustomSetterTest
  */
-class ModelCustomSetterTest extends TestCase
+class CustomSetterTest extends TestCase
 {
     /**
      * Test model custom setters

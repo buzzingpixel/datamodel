@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelUuidTest
+ * Class UuidTest
  */
-class ModelUuidTest extends TestCase
+class UuidTest extends TestCase
 {
     /**
      * Test model uuid

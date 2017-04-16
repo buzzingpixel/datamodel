@@ -8,9 +8,9 @@ use TestingClasses\TestingClass;
 use TestingClasses\TestingClass2;
 
 /**
- * Class ModelEnumPropertyTest
+ * Class EnumPropertyTest
  */
-class ModelEnumPropertyTest extends TestCase
+class EnumPropertyTest extends TestCase
 {
     /**
      * Test enum model property type

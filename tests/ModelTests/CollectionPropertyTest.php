@@ -8,9 +8,9 @@ use TestingClasses\TestingClass;
 use BuzzingPixel\DataModel\ModelCollection;
 
 /**
- * Class ModelCollectionPropertyTest
+ * Class CollectionPropertyTest
  */
-class ModelCollectionPropertyTest extends TestCase
+class CollectionPropertyTest extends TestCase
 {
     /**
      * Test model property

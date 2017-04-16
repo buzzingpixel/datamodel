@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelCustomGetterTest
+ * Class CustomGetterTest
  */
-class ModelCustomGetterTest extends TestCase
+class CustomGetterTest extends TestCase
 {
     /**
      * Test model custom getters

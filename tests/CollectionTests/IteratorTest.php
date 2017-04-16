@@ -10,7 +10,7 @@ use TestingClasses\ModelInstance;
 /**
  * Class ModelCollectionIteratorTest
  */
-class ModelCollectionIteratorTest extends TestCase
+class IteratorTest extends TestCase
 {
     /**
      * Test iterator

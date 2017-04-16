@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
 /**
- * Class ModelStringPropertyTest
+ * Class StringPropertyTest
  */
-class ModelStringPropertyTest extends TestCase
+class StringPropertyTest extends TestCase
 {
     /**
      * Test string model property type

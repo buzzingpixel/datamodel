@@ -8,9 +8,9 @@ use TestingClasses\TestingClass;
 use TestingClasses\TestingClass2;
 
 /**
- * Class ModelIntArrayPropertyTest
+ * Class InstanceArrayPropertyTest
  */
-class ModelInstanceArrayPropertyTest extends TestCase
+class InstanceArrayPropertyTest extends TestCase
 {
     /**
      * Test instance model property type
