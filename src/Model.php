@@ -32,6 +32,9 @@ abstract class Model
     /** @var array $definedAttributes */
     private $definedAttributes = array();
 
+    /** @var array $dirtyValues */
+    private $dirtyValues = array();
+
     /**
      * Constructor
      * @param array $properties
@@ -183,6 +186,9 @@ abstract class Model
             return $this;
         }
 
+        // Preserve the dirty value
+        $dirtyVal = $val;
+
         // Get this property type
         $type = $this->definedAttributes[$name]['type'];
 
@@ -239,6 +245,9 @@ abstract class Model
 
         // Set property
         $this->attributes[$name] = $val;
+
+        // Save the dirty value
+        $this->dirtyValues[$name] = $dirtyVal;
 
         // Return instance
         return $this;
@@ -396,6 +405,22 @@ abstract class Model
 
         // Return the value
         return $val;
+    }
+
+    /**
+     * Get dirty value
+     * @param string $name
+     * @return mixed
+     */
+    public function getDirtyValue($name)
+    {
+        // Return the dirty value if it is set
+        if (isset($this->dirtyValues[$name])) {
+            return $this->dirtyValues[$name];
+        }
+
+        // No value exists
+        return null;
     }
 
     /**

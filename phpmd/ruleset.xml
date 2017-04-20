@@ -17,7 +17,11 @@
             <property name="reportLevel" value="15" />
         </properties>
     </rule>
-    <rule ref="rulesets/codesize.xml/NPathComplexity" />
+    <rule ref="rulesets/codesize.xml/NPathComplexity">
+        <properties>
+            <property name="minimum" value="400" />
+        </properties>
+    </rule>
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength" />
     <rule ref="rulesets/codesize.xml/ExcessiveClassLength" />
     <rule ref="rulesets/codesize.xml/ExcessiveParameterList" />
@@ -28,7 +32,11 @@
     </rule>
     <rule ref="rulesets/codesize.xml/TooManyFields" />
     <rule ref="rulesets/codesize.xml/TooManyMethods" />
-    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity" />
+    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
+        <properties>
+            <property name="maximum" value="100" />
+        </properties>
+    </rule>
     <rule ref="rulesets/controversial.xml">
         <exclude name="CamelCaseClassName" />
     </rule>
