@@ -210,4 +210,32 @@ class ModelCollection implements \Iterator, \Countable
         // Return the array
         return $returnArray;
     }
+
+    /**
+     * Order models by property
+     * @param string $prop
+     * @param string $dir
+     */
+    public function orderBy($prop, $dir = 'asc')
+    {
+        // Make sure $dir is acceptable
+        $dir = $dir === 'asc' || $dir === 'desc' ? $dir : 'asc';
+
+        // Get array of models indexed by property
+        $array = array();
+        foreach ($this->models as $model) {
+            $array[$model->{$prop}] = $model;
+        }
+
+        // Sort the array
+        ksort($array);
+
+        // Check the direction
+        if ($dir === 'desc') {
+            $array = array_reverse($array);
+        }
+
+        // Set the models
+        $this->setModels(array_values($array));
+    }
 }
