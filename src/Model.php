@@ -500,6 +500,7 @@ abstract class Model
 
     /**
      * Validate model
+     * @return bool
      */
     public function validate()
     {
@@ -551,6 +552,9 @@ abstract class Model
 
         // Set the errors
         $this->errors = $errors;
+
+        // Return result
+        return ! $this->hasErrors;
     }
 
     /**
