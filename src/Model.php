@@ -56,6 +56,16 @@ abstract class Model
     }
 
     /**
+     * Clone
+     */
+    public function __clone()
+    {
+        // Set the model's uuid
+        $uuidService = new Uuid();
+        $this->uuid = $uuidService->generate();
+    }
+
+    /**
      * Get uuid
      */
     public function getUuid()
