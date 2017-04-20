@@ -19,6 +19,9 @@ class BoolHandler
     /** @var string SET_HANDLER */
     const SET_HANDLER = 'commonHandler';
 
+    /** @var string VALIDATION_HANDLER */
+    const VALIDATION_HANDLER = 'validationHandler';
+
     /**
      * Common method to handle data
      * @param mixed $val
@@ -32,5 +35,23 @@ class BoolHandler
             $val === true ||
             $val === 'y' ||
             $val === 'yes';
+    }
+
+    /**
+     * Validation handler
+     * @param mixed $val
+     * @param array $def
+     * @return array $errors
+     */
+    public function validationHandler($val, $def)
+    {
+        if (isset($def['required']) &&
+            $def['required'] &&
+            gettype($val) !== 'boolean'
+        ) {
+            return array('This field is required');
+        }
+
+        return array();
     }
 }

@@ -527,15 +527,16 @@ abstract class Model
                 // Create instance of handler class
                 $handler = new $custHandlerClass;
 
-                // Run specified method
-                $validation = $handler->{$handler::VALIDATION_HANDLER}(
+                // Run specified method to get validation errors
+                $validationErrors = $handler->{$handler::VALIDATION_HANDLER}(
                     $val,
                     $def
                 );
 
-                // TODO
-                var_dump($validation);
-                die;
+                // Set validation errors if there are any
+                if ($validationErrors) {
+                    $errors[$attribute] = $validationErrors;
+                }
 
                 // Custom handler handled it for us, continue
                 continue;
