@@ -14,6 +14,8 @@ use BuzzingPixel\DataModel\Service\Generator\Uuid;
  * Class Model
  *
  * @property-read string $uuid
+ * @property-read bool $hasErrors
+ * @property-read array $errors
  */
 abstract class Model
 {
@@ -34,6 +36,9 @@ abstract class Model
 
     /** @var array $dirtyValues */
     private $dirtyValues = array();
+
+    /** @var array $errors */
+    private $errors = array();
 
     /**
      * Constructor
@@ -120,6 +125,14 @@ abstract class Model
 
         // Return instance
         return $this;
+    }
+
+    /**
+     * Get defined attributes
+     */
+    public function getDefinedAttributes()
+    {
+        return $this->definedAttributes;
     }
 
     /**
@@ -483,5 +496,76 @@ abstract class Model
 
         // Return the array
         return $returnArray;
+    }
+
+    /**
+     * Validate model
+     */
+    public function validate()
+    {
+        // Set an errors array
+        $errors = array();
+
+        // Iterate through model properties
+        foreach ($this->definedAttributes as $attribute => $def) {
+            // Get the property value
+            $val = $this->{$attribute};
+
+            // Get this property type
+            $type = $def['type'];
+            $typeHandlerClass = ucfirst($type) . 'Handler';
+
+            // Set custom handler class name
+            $handlerNamespace = self::HANDLER_NAMESPACE;
+            $custHandlerClass = "{$handlerNamespace}{$typeHandlerClass}";
+
+            // Check for custom handler class
+            if (class_exists($custHandlerClass) &&
+                defined("{$custHandlerClass}::VALIDATION_HANDLER")
+            ) {
+                // Create instance of handler class
+                $handler = new $custHandlerClass;
+
+                // Run specified method
+                $validation = $handler->{$handler::VALIDATION_HANDLER}(
+                    $val,
+                    $def
+                );
+
+                // TODO
+                var_dump($validation);
+                die;
+
+                // Custom handler handled it for us, continue
+                continue;
+            }
+
+            // Since there was no custom handler, validate if required
+            if (isset($def['required']) &&
+                $def['required'] &&
+                ! $val
+            ) {
+                $errors[$attribute][] = 'This field is required';
+            }
+        }
+
+        // Set the errors
+        $this->errors = $errors;
+    }
+
+    /**
+     * Has errors
+     */
+    public function getHasErrors()
+    {
+        return count($this->errors) !== 0;
+    }
+
+    /**
+     * Get errors
+     */
+    public function getErrors()
+    {
+        return $this->errors;
     }
 }
