@@ -509,8 +509,24 @@ abstract class Model
 
         // Iterate through model properties
         foreach ($this->definedAttributes as $attribute => $def) {
-            // Get the property value
             $val = $this->{$attribute};
+
+            // Get the potential custom validation method name
+            $customMethod = 'validate' . ucfirst($attribute);
+
+            // Check if there is a custom validation method
+            if (method_exists($this, $customMethod)) {
+                // Run specified method to get validation errors
+                $validationErrors = $this->{$customMethod}($val, $def);
+
+                // Set validation errors if there are any
+                if ($validationErrors) {
+                    $errors[$attribute] = $validationErrors;
+                }
+
+                // Custom method handled it for us, continue
+                continue;
+            }
 
             // Get this property type
             $type = $def['type'];
@@ -574,10 +590,7 @@ abstract class Model
             }
 
             // Since there was no custom handler, validate if required
-            if (isset($def['required']) &&
-                $def['required'] &&
-                ! $val
-            ) {
+            if (isset($def['required']) && $def['required'] && ! $val) {
                 $errors[$attribute][] = 'This field is required';
             }
         }
