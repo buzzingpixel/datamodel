@@ -19,6 +19,9 @@ class IntArrayHandler
     /** @var string SET_HANDLER */
     const SET_HANDLER = 'commonHandler';
 
+    /** @var string VALIDATION_HANDLER */
+    const VALIDATION_HANDLER = 'validationHandler';
+
     /**
      * Common method to handle data
      * @param mixed $val
@@ -39,5 +42,29 @@ class IntArrayHandler
 
         // Return the value
         return $val;
+    }
+
+    /**
+     * Validation handler
+     * @param array $val
+     * @param array $def
+     * @return array
+     */
+    public function validationHandler($val, $def)
+    {
+        if (isset($def['required']) && $def['required'] && ! $val) {
+            return array('This field is required');
+        }
+
+        $intHandler = new IntHandler();
+        foreach ($val as $item) {
+            $errors = $intHandler->validationHandler($item, $def);
+
+            if ($errors) {
+                return $errors;
+            }
+        }
+
+        return array();
     }
 }
