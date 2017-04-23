@@ -542,6 +542,37 @@ abstract class Model
                 continue;
             }
 
+            // Get this class
+            $thisClass = get_class($this);
+
+            // Check for custom handler
+            if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
+                isset($thisClass::CUSTOM_HANDLERS[$type])
+            ) {
+                // Get the handler class string
+                $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
+
+                // Create instance of handler class
+                $handler = new $handlerClassString();
+
+                // Run specified method if defined
+                if (defined("{$handlerClassString}::VALIDATION_HANDLER")) {
+                    // Get validation errors return
+                    $validationErrors = $handler->{$handler::VALIDATION_HANDLER}(
+                        $val,
+                        $def
+                    );
+
+                    // Set validation errors if there are any
+                    if ($validationErrors) {
+                        $errors[$attribute] = $validationErrors;
+                    }
+
+                    // Custom handler handled it for us, continue
+                    continue;
+                }
+            }
+
             // Since there was no custom handler, validate if required
             if (isset($def['required']) &&
                 $def['required'] &&

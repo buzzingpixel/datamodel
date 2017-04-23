@@ -16,6 +16,9 @@ class CustomDataTypeHandler
     /** @var string AS_ARRAY_HANDLER */
     const AS_ARRAY_HANDLER = 'asArrayHandler';
 
+    /** @var string VALIDATION_HANDLER */
+    const VALIDATION_HANDLER = 'validationHandler';
+
     /**
      * Common method to handle data
      * @param mixed $val
@@ -56,5 +59,19 @@ class CustomDataTypeHandler
         }
 
         return $val;
+    }
+
+    /**
+     * Validation handler
+     * @param mixed $val
+     * @return array $errors
+     */
+    public function validationHandler($val)
+    {
+        if ($val === 'testValidationFail') {
+            return array('failed');
+        }
+
+        return array();
     }
 }
