@@ -14,7 +14,7 @@ BuzzingPixel DataModel is simple data modeling decoupled from any framework and/
 - [Setting Data](docs/setting-data.md)
 - [Getting Data](docs/getting-data.md)
 - [Custom Data Handlers](docs/custom-data-handlers.md)
-- [Collections](docs/collections.md)
+- [Collections](docs/model-collections.md)
 - [Model Class Reference](docs/model-class-reference.md)
 - [Model Collection Class Reference](docs/model-collection-class-reference.md)
 - [Changelog](changelog.md)
