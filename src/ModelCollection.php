@@ -143,10 +143,15 @@ class ModelCollection implements \Iterator, \Countable
 
     /**
      * Empty the collection
+     * @return self
      */
     public function emptyCollection()
     {
+        // Empty the collection
         $this->models = array();
+
+        // Return instance
+        return $this;
     }
 
     /**
@@ -215,6 +220,7 @@ class ModelCollection implements \Iterator, \Countable
      * Order models by property
      * @param string $prop
      * @param string $dir
+     * @return self
      */
     public function orderBy($prop, $dir = 'asc')
     {
@@ -237,5 +243,8 @@ class ModelCollection implements \Iterator, \Countable
 
         // Set the models
         $this->setModels(array_values($array));
+
+        // Return instance
+        return $this;
     }
 }
