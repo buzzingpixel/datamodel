@@ -1,5 +1,13 @@
 # Getting Started with BuzzingPixel DataModel
 
+## Installing
+
+To begin using DataModel, require it into your project with composer:
+
+```shell
+composer require buzzingpixel/datamodel
+```
+
 ## Creating a model
 
 To get started using the DataModel, you create your own model/class which extends the BuzzingPixel DataModel `Model` class, and return an array of attribute definitions with the `defineAttributes` method. Here is a simple example of a model that has an integer property called `myInteger`

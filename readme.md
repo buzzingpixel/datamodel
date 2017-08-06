@@ -1,4 +1,25 @@
-# BuzzingPixel DataModel [![CircleCI](https://circleci.com/gh/buzzingpixel/datamodel/tree/master.svg?style=svg)](https://circleci.com/gh/buzzingpixel/datamodel/tree/master)
+<div align="center">
+    <h1>BuzzingPixel DataModel</h1>
+    <a href="https://circleci.com/gh/buzzingpixel/datamodel/tree/master">
+        <img
+            height="20px"
+            src="https://circleci.com/gh/buzzingpixel/datamodel/tree/master.svg?style=svg"
+            alt="Build Status"
+        >
+    </a>
+    <a href="https://packagist.org/packages/buzzingpixel/datamodel">
+        <img
+            src="https://poser.pugx.org/buzzingpixel/datamodel/v/stable"
+            alt="Latest Stable Version"
+        >
+    </a>
+    <a href="http://www.apache.org/licenses/LICENSE-2.0">
+        <img
+            src="https://poser.pugx.org/buzzingpixel/datamodel/license"
+            alt="License"
+        >
+    </a>
+</div>
 
 ## About BuzzingPixel DataModel
 
