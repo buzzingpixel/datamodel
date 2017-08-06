@@ -229,9 +229,14 @@ abstract class Model
         // Get this class
         $thisClass = get_class($this);
 
+        // Get custom handlers
+        $customHandlers = defined("{$thisClass}::CUSTOM_HANDLERS") ?
+            $thisClass::CUSTOM_HANDLERS :
+            array();
+
         // Check for custom handler
         if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
-            isset($thisClass::CUSTOM_HANDLERS[$type])
+            isset($customHandlers[$type])
         ) {
             // Get the handler class string
             $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
@@ -389,9 +394,14 @@ abstract class Model
         // Get this class
         $thisClass = get_class($this);
 
+        // Get custom handlers
+        $customHandlers = defined("{$thisClass}::CUSTOM_HANDLERS") ?
+            $thisClass::CUSTOM_HANDLERS :
+            array();
+
         // Check for custom handler
         if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
-            isset($thisClass::CUSTOM_HANDLERS[$type])
+            isset($customHandlers[$type])
         ) {
             // Get the handler class string
             $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
@@ -474,9 +484,14 @@ abstract class Model
             // Get this class
             $thisClass = get_class($this);
 
+            // Get custom handlers
+            $customHandlers = defined("{$thisClass}::CUSTOM_HANDLERS") ?
+                $thisClass::CUSTOM_HANDLERS :
+                array();
+
             // Check for custom handler
             if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
-                isset($thisClass::CUSTOM_HANDLERS[$type])
+                isset($customHandlers[$type])
             ) {
                 // Get the handler class string
                 $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
@@ -561,9 +576,14 @@ abstract class Model
             // Get this class
             $thisClass = get_class($this);
 
+            // Get custom handlers
+            $customHandlers = defined("{$thisClass}::CUSTOM_HANDLERS") ?
+                $thisClass::CUSTOM_HANDLERS :
+                array();
+
             // Check for custom handler
             if (defined("{$thisClass}::CUSTOM_HANDLERS") &&
-                isset($thisClass::CUSTOM_HANDLERS[$type])
+                isset($customHandlers[$type])
             ) {
                 // Get the handler class string
                 $handlerClassString = $thisClass::CUSTOM_HANDLERS[$type];
