@@ -31,6 +31,7 @@ use BuzzingPixel\DataModel\ModelCollection;
  * @property ModelCollection $collectionPropTest
  * @property \DateTime $datetimeTest
  * @property \DateTime $datetimeTestRequired
+ * @property \DateTimeZone $dateTimezoneTest
  */
 class ModelInstance extends Model
 {
@@ -77,6 +78,7 @@ class ModelInstance extends Model
             ),
             'collectionPropTest' => DataType::COLLECTION,
             'datetimeTest' => DataType::DATETIME,
+            'dateTimezoneTest' => DataType::DATE_TIMEZONE,
         );
     }
 

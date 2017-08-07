@@ -20,8 +20,11 @@ class DateTimePropertyTest extends TestCase
 
         self::assertNull($model->datetimeTest);
 
-        $model->datetimeTest = '1501998027';
+        $model->datetimeTest = 1501998027;
         self::assertEquals('1501998027', $model->datetimeTest->getTimestamp());
+
+        $model->datetimeTest = '1501998027';
+        self::assertEquals(1501998027, $model->datetimeTest->getTimestamp());
 
         $model->datetimeTest = '';
         self::assertEquals(time(), $model->datetimeTest->getTimestamp());

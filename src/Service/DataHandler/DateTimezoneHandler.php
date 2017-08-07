@@ -11,7 +11,7 @@ namespace BuzzingPixel\DataModel\Service\DataHandler;
 /**
  * Class DatetimeHandler
  */
-class DatetimeHandler
+class DateTimezoneHandler
 {
     /** @var string GET_HANDLER */
     const GET_HANDLER = 'getHandler';
@@ -29,7 +29,7 @@ class DatetimeHandler
      */
     public function getHandler($val)
     {
-        if (! $val instanceof \DateTime) {
+        if (! $val instanceof \DateTimeZone) {
             return null;
         }
         return $val;
@@ -38,30 +38,15 @@ class DatetimeHandler
     /**
      * Set handler
      * @param mixed $val
-     * @return \DateTime
+     * @return \DateTimeZone
      */
     public function setHandler($val)
     {
-        if ($val instanceof \DateTime) {
-            return $val;
+        try {
+            return new \DateTimeZone($val);
+        } catch (\Exception $e) {
+            return null;
         }
-
-        $dateTime = null;
-
-        if ($this->isValidTimeStamp($val)) {
-            $dateTime = new \DateTime();
-            $dateTime->setTimestamp($val);
-        }
-
-        if (! $dateTime && is_string($val)) {
-            try {
-                $dateTime = new \DateTime($val);
-            } catch (\Exception $e) {
-                //
-            }
-        }
-
-        return $dateTime;
     }
 
     /**
@@ -74,31 +59,11 @@ class DatetimeHandler
     {
         if (isset($def['required']) &&
             $def['required'] &&
-            ! $val instanceof \DateTime
+            ! $val instanceof \DateTimeZone
         ) {
             return array('This field is required');
         }
 
         return array();
-    }
-
-    /**
-     * Check if input is a valid timestamp
-     * @param $timestamp
-     * @return bool
-     */
-    private function isValidTimeStamp($timestamp)
-    {
-        if (! is_numeric($timestamp)) {
-            return false;
-        }
-
-        $timestamp = (int) $timestamp;
-
-        try {
-            return ($timestamp <= PHP_INT_MAX) && ($timestamp >= ~PHP_INT_MAX);
-        } catch (\Exception $e) {
-            return false;
-        }
     }
 }

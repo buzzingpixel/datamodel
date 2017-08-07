@@ -60,4 +60,7 @@ class DataType
 
     /** @var string DATETIME */
     const DATETIME = 'datetime';
+
+    /** @var string DATE_TIMEZONE */
+    const DATE_TIMEZONE = 'dateTimezone';
 }
