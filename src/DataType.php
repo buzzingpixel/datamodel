@@ -57,4 +57,7 @@ class DataType
 
     /** @var string STRING_ARRAY */
     const STRING_ARRAY = 'stringArray';
+
+    /** @var string DATETIME */
+    const DATETIME = 'datetime';
 }

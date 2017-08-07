@@ -33,7 +33,7 @@ class EmailArrayHandler
 
         // Iterate through each of the items and cast to handler
         $emailHandler = new EmailHandler();
-        foreach ($val as $key => $item) {
+        foreach ($val ?: array() as $key => $item) {
             $val[$key] = $emailHandler->commonHandler($item);
         }
 

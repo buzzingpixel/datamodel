@@ -57,7 +57,7 @@ class IntArrayHandler
         }
 
         $intHandler = new IntHandler();
-        foreach ($val as $item) {
+        foreach ($val ?: array() as $item) {
             $errors = $intHandler->validationHandler($item, $def);
 
             if ($errors) {
