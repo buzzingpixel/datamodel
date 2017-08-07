@@ -29,6 +29,8 @@ use BuzzingPixel\DataModel\ModelCollection;
  * @property string[] $emailArrayPropTest
  * @property TestingClass[] $instanceArrayPropTest
  * @property ModelCollection $collectionPropTest
+ * @property \DateTime $datetimeTest
+ * @property \DateTime $datetimeTestRequired
  */
 class ModelInstance extends Model
 {
@@ -45,20 +47,20 @@ class ModelInstance extends Model
             'stringProp' => DataType::STRING,
             'intProp' => DataType::INT,
             'intPropExtra' => array(
-                'type' => DataType::INT
+                'type' => DataType::INT,
             ),
             'floatProp' => DataType::FLOAT,
             'boolProp' => DataType::BOOL,
             'instanceProp' => array(
                 'type' => DataType::INSTANCE,
-                'expect' => '\TestingClasses\TestingClass'
+                'expect' => '\TestingClasses\TestingClass',
             ),
             'enumProp' => array(
                 'type' => DataType::ENUM,
                 'expect' => array(
                     123,
                     'someVal',
-                    1.2
+                    1.2,
                 )
             ),
             'emailProp' => DataType::EMAIL,
@@ -71,9 +73,10 @@ class ModelInstance extends Model
             'emailArrayPropTest' => DataType::EMAIL_ARRAY,
             'instanceArrayPropTest' => array(
                 'type' => DataType::INSTANCE_ARRAY,
-                'expect' => '\TestingClasses\TestingClass'
+                'expect' => '\TestingClasses\TestingClass',
             ),
-            'collectionPropTest' => DataType::COLLECTION
+            'collectionPropTest' => DataType::COLLECTION,
+            'datetimeTest' => DataType::DATETIME,
         );
     }
 
