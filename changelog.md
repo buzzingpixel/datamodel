@@ -1,6 +1,10 @@
 # BuzzingPixel DataModel Changelog
 
-## 1.1.1
+## 1.2.0
+
+### New
+
+- Added DateTimeZone model data type
 
 ### Fixed
 
