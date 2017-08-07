@@ -89,10 +89,14 @@ class DatetimeHandler
      */
     private function isValidTimeStamp($timestamp)
     {
+        if (! is_numeric($timestamp)) {
+            return false;
+        }
+
+        $timestamp = (int) $timestamp;
+
         try {
-            return ((string) (int) $timestamp === $timestamp)
-                && ($timestamp <= PHP_INT_MAX)
-                && ($timestamp >= ~PHP_INT_MAX);
+            return ($timestamp <= PHP_INT_MAX) && ($timestamp >= ~PHP_INT_MAX);
         } catch (\Exception $e) {
             return false;
         }
