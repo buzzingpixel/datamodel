@@ -57,7 +57,7 @@ class FloatArrayHandler
         }
 
         $floatHandler = new FloatHandler();
-        foreach ($val as $item) {
+        foreach ($val ?: array() as $item) {
             $errors = $floatHandler->validationHandler($item, $def);
 
             if ($errors) {

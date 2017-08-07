@@ -33,7 +33,7 @@ class StringArrayHandler
 
         // Iterate through each of the items and send to handler
         $intHandler = new StringHandler();
-        foreach ($val as $key => $item) {
+        foreach ($val ?: array() as $key => $item) {
             $val[$key] = $intHandler->commonHandler($item);
         }
 

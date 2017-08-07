@@ -33,7 +33,7 @@ class InstanceArrayHandler
 
         // Iterate through each of the items and cast to handler
         $instanceHandler = new InstanceHandler();
-        foreach ($val as $key => $item) {
+        foreach ($val ?: array() as $key => $item) {
             $val[$key] = $instanceHandler->commonHandler($item, $def);
         }
 
