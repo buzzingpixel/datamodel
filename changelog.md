@@ -1,5 +1,11 @@
 # BuzzingPixel DataModel Changelog
 
+## 1.1.1
+
+### Fixed
+
+- Fixed an issue where an integer would not be accepted as a timestamp for setting DateTime data type
+
 ## 1.1.0
 
 ### New
