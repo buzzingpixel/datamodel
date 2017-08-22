@@ -637,4 +637,34 @@ abstract class Model
     {
         return $this->errors;
     }
+
+    /**
+     * Add error
+     * @param string $attribute
+     * @param string $message
+     */
+    public function addError($attribute, $message)
+    {
+        // Get defined attributes
+        $attributes = $this->getDefinedAttributes();
+
+        // Make sure the specified attribute is attached to the model
+        if (! isset($attributes[$attribute])) {
+            return;
+        }
+
+        // Start off with an empty array for existing errors
+        $attrErrors = array();
+
+        // If the model already has errors for this attribute, get them
+        if (isset($this->errors[$attribute])) {
+            $attrErrors = $this->errors[$attribute];
+        }
+
+        // Add the error to the array
+        $attrErrors[] = $message;
+
+        // Add the errors to the model
+        $this->errors[$attribute] = $attrErrors;
+    }
 }

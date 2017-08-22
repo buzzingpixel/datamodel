@@ -1,5 +1,9 @@
 # BuzzingPixel DataModel Changelog
 
+## 1.3.0
+
+- Added the ability to add arbitrary errors onto attributes
+
 ## 1.2.0
 
 ### New
