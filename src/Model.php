@@ -363,6 +363,14 @@ abstract class Model
 
         // Check if property has been set
         if (! isset($this->attributes[$name])) {
+            // Check for custom getter
+            $customGetter = $this->checkForGetter($name);
+
+            // If the custom getter method exists, return the value
+            if ($customGetter['methodExists']) {
+                return $customGetter['val'];
+            }
+
             return null;
         }
 
