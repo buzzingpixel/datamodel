@@ -2,7 +2,6 @@
 
 namespace ModelTests\ValidationTests;
 
-use BuzzingPixel\DataModel\DataType;
 use PHPUnit\Framework\TestCase;
 use TestingClasses\ModelInstance;
 
